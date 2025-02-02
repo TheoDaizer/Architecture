@@ -26,6 +26,7 @@ def test_pont_add_vector():
     assert new_point.x == 9
     assert new_point.y == 7
 
+
 def test_points_equality():
     point_1 = Point(6, 7)
     point_2 = Point(6, 7)

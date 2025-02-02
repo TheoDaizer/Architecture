@@ -1,6 +1,7 @@
 from typing import Protocol
 from primitives import Point, Vector
 
+
 class MovableObject(Protocol):
 
     def get_position(self) -> Point:
