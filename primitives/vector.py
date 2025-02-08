@@ -1,4 +1,4 @@
-class Point:
+class Vector:
     """Position in 2D discrete space"""
 
     def __init__(self, x: int, y: int):
@@ -9,23 +9,18 @@ class Point:
         self.x = x
         self.y = y
 
-    def add(self, other: 'Point') -> 'Point':
+    def add(self, other: 'Vector') -> 'Vector':
         """
         Create new point from current and other point
 
         :param other: other point
         :return: new point
         """
-        return Point(self.x + other.x, self.y + other.y)
+        return Vector(self.x + other.x, self.y + other.y)
 
-    def __eq__(self, other: 'Point') -> bool:
+    def __eq__(self, other: 'Vector') -> bool:
         return self.x == other.x and self.y == other.y
 
 
     def __repr__(self) -> str:
-        return 'Point({}, {})'.format(self.x, self.y)
-
-
-class Vector(Point):
-    """Delta for position in 2D discrete space"""
-    pass
+        return 'Vector({}, {})'.format(self.x, self.y)

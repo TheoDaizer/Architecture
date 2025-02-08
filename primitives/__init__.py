@@ -1,2 +1,2 @@
-from .point import Point, Vector
+from .vector import Vector
 from .angle import Angle

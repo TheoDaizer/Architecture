@@ -1,16 +1,16 @@
 from typing import Protocol
-from primitives import Point, Vector
+from primitives import Vector
 
 
 class MovableObject(Protocol):
 
-    def get_position(self) -> Point:
+    def get_position(self) -> Vector:
         ...
 
     def get_velocity(self) -> Vector:
         ...
 
-    def set_position(self, new_position: Point):
+    def set_position(self, new_position: Vector):
         ...
 
 
