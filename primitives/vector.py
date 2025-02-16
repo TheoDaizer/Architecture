@@ -1,26 +1,38 @@
+from typing import Iterable
+
+
 class Vector:
-    """Position in 2D discrete space"""
+    """Position in discrete space"""
 
-    def __init__(self, x: int, y: int):
+    def __init__(self, positions: Iterable[int]):
         """
-        :param x: x position value
-        :param y: y position value
+        :param positions: position values
         """
-        self.x = x
-        self.y = y
+        self.positions = list(positions)
 
-    def add(self, other: 'Vector') -> 'Vector':
+    @property
+    def dimensions(self) -> int:
         """
-        Create new point from current and other point
+        Number of vector dimensions
+        """
+        return len(self.positions)
 
-        :param other: other point
+    @staticmethod
+    def add(vector1: 'Vector', vector2: 'Vector') -> 'Vector':
+        """
+        Create new vector from summ of two vectors
+
+        :param vector1: first vector
+        :param vector2: second vector
         :return: new point
         """
-        return Vector(self.x + other.x, self.y + other.y)
+        if vector1.dimensions != vector2.dimensions:
+            raise ValueError("Number of dimension in vectors are not equal.")
+        return Vector(map(sum, zip(vector1.positions, vector2.positions)))
 
     def __eq__(self, other: 'Vector') -> bool:
-        return self.x == other.x and self.y == other.y
 
+        return self.dimensions == other.dimensions and self.positions == other.positions
 
     def __repr__(self) -> str:
-        return 'Vector({}, {})'.format(self.x, self.y)
+        return 'Vector({})'.format(self.positions)

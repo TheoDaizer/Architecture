@@ -24,6 +24,6 @@ class Move:
         position = self.obj.get_position()
         velocity = self.obj.get_velocity()
 
-        new_position = position.add(velocity)
+        new_position = Vector.add(position, velocity)
 
         self.obj.set_position(new_position)
