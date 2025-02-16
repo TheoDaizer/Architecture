@@ -1,15 +1,15 @@
-from collections import deque
 from actions.command_interface import Command
+from primitives.command_queue import CommandQueue
 from exception_handlers.exception_mapper import ExceptionMapper
 
 
 class CommandExecutor:
-    def __init__(self, command_deque: deque[Command], exception_handler: ExceptionMapper):
-        self.deque = command_deque
+    def __init__(self, queue: CommandQueue, exception_handler: ExceptionMapper):
+        self.queue = queue
         self.exception_handler = exception_handler
 
     def execute(self):
-        command = self.deque.popleft()
+        command = self.queue.get()
         try:
             command.execute()
         except Exception as error:
@@ -18,5 +18,5 @@ class CommandExecutor:
             if handler_type is None:
                 raise error
 
-            handler: Command = handler_type(self.deque, command, error)
+            handler: Command = handler_type(self.queue, command, error)
             handler.execute()
