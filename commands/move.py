@@ -14,7 +14,7 @@ class MovableObject(Protocol):
         ...
 
 
-class Move:
+class MoveCommand:
     """Class to move objects in space"""
 
     def __init__(self, obj: MovableObject):
