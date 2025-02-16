@@ -7,7 +7,7 @@ from exception_handlers.commands import RepeatCommand, ReRepeatCommand, LogExcep
 from exception_handlers.handlers import RepeatCommandHandler, ReRepeatCommandHandler, LogExceptionHandler
 
 
-def test_repeat_and_log_scenario():
+def test_repeat_and_log_strategy():
     mock_error = Exception()
     mock_command = Mock()
     mock_command.execute.side_effect = mock_error
@@ -31,7 +31,7 @@ def test_repeat_and_log_scenario():
     assert type(command_deque.head()) is LogExceptionCommand
 
 
-def test_command_executor():
+def test_rerepeat_and_log_strategy():
     mock_error = Exception()
     mock_command = Mock()
     mock_command.execute.side_effect = mock_error
