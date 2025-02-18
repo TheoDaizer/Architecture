@@ -1,5 +1,6 @@
 import pytest
 from ..vector import Vector
+from ..angle import Angle
 
 
 def test_pont_values():
@@ -42,3 +43,18 @@ def test_pont_to_string():
     vector = Vector([-5, 4, 6])
 
     assert str(vector) == 'Vector([-5, 4, 6])'
+
+
+def test_rotate():
+    vector = Vector([1, 0])
+    angle = Angle(3, 4)
+
+    new_vector = Vector.rotate(vector, angle)
+    assert new_vector == Vector([0, -1])
+
+def test_rotate_with_dimensions_error():
+    vector = Vector([1, 0, 1])
+    angle = Angle(3, 4)
+
+    with pytest.raises(ValueError):
+        Vector.rotate(vector, angle)
