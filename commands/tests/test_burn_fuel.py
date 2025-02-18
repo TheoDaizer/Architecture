@@ -4,7 +4,7 @@ from unittest.mock import Mock
 from commands import BurnFuelCommand
 
 
-def test_check_fuel():
+def test_burn_fuel():
     mock_fuel_burnable_object = Mock()
     mock_fuel_burnable_object.get_fuel_available.return_value = 5
     mock_fuel_burnable_object.get_fuel_to_burn.return_value = 2

@@ -6,7 +6,7 @@ from commands.exceptions import CommandException
 from primitives import Vector
 
 
-def test_move_with_fuel_with_enough_fuel():
+def test_move_with_fuel_enough_fuel():
     mock_object = Mock()
 
     mock_object.get_position.return_value = Vector([12, 5])
@@ -23,7 +23,7 @@ def test_move_with_fuel_with_enough_fuel():
     mock_object.set_fuel_available.assert_called_once_with(3)
 
 
-def test_move_with_fuel_with_not_enough_fuel():
+def test_move_with_fuel_not_enough_fuel():
     mock_object = Mock()
 
     mock_object.get_fuel_available.return_value = 3
