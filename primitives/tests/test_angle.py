@@ -1,5 +1,6 @@
 import pytest
 from ..angle import Angle
+from math import pi
 
 
 def test_angle_values():
@@ -27,7 +28,7 @@ def test_angle_add_angle():
     assert new_angle.s == 8
 
 
-def test_points_equality():
+def test_angles_equality():
     angle_1 = Angle(6, 7)
     angle_2 = Angle(6, 7)
     angle_3 = Angle(3, 7)
@@ -38,7 +39,13 @@ def test_points_equality():
     assert angle_1 != angle_4
 
 
-def test_pont_to_string():
+def test_angle_to_string():
     angle = Angle(-5, 4)
 
     assert str(angle) == 'Angle(-5, 4)'
+
+def test_angle_to_radians():
+    angle = Angle(1, 4)
+    radians = angle.as_radians()
+
+    pytest.approx(radians, pi / 2)

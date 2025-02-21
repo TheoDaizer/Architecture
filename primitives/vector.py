@@ -1,4 +1,8 @@
-from typing import Iterable
+from math import sin, cos
+from typing import Iterable, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from primitives import Angle
 
 
 class Vector:
@@ -29,6 +33,21 @@ class Vector:
         if vector1.dimensions != vector2.dimensions:
             raise ValueError("Number of dimension in vectors are not equal.")
         return Vector(map(sum, zip(vector1.positions, vector2.positions)))
+
+    @staticmethod
+    def rotate(vector: 'Vector', angle: 'Angle') -> 'Vector':
+        if vector.dimensions != 2:
+            raise ValueError("Supported rotation only for 2D vectors")
+        x, y = vector.positions
+        radians = angle.as_radians()
+
+        calc_cos = cos(radians)
+        calc_sin = sin(radians)
+
+        new_x = round(x * calc_cos - y * calc_sin)
+        new_y = round(x * calc_sin + y * calc_cos)
+
+        return Vector([new_x, new_y])
 
     def __eq__(self, other: 'Vector') -> bool:
 

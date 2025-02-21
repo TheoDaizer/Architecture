@@ -14,7 +14,7 @@ class RotatableObject(Protocol):
         ...
 
 
-class Rotate:
+class RotateCommand:
     """Class to rotate objects"""
 
     def __init__(self, obj: RotatableObject):
