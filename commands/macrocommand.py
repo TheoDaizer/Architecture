@@ -1,5 +1,5 @@
 from typing import Iterable
-from ioc.command_interface import Command
+from ioc.i_command import Command
 from commands.exceptions import CommandException
 
 
