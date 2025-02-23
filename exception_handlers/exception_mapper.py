@@ -1,5 +1,5 @@
 from typing import Type
-from actions.command_interface import Command
+from ioc.i_command import Command
 
 
 class ExceptionMapper:

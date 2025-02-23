@@ -1,5 +1,5 @@
 from logging import getLogger
-from actions.command_interface import Command
+from ioc.i_command import Command
 
 
 class LogExceptionCommand:

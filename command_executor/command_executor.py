@@ -1,4 +1,4 @@
-from actions.command_interface import Command
+from ioc.i_command import Command
 from primitives.command_queue import CommandQueue
 from exception_handlers.exception_mapper import ExceptionMapper
 

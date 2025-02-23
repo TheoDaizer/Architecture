@@ -1,0 +1,2 @@
+class RootScopeHasNoParentError(KeyError):
+    pass
