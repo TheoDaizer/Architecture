@@ -1,5 +1,5 @@
 from collections import deque
-from actions.command_interface import Command
+from ioc.i_command import Command
 
 
 class CommandQueue:

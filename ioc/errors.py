@@ -1,0 +1,2 @@
+class ResolveDependencyError(KeyError):
+    pass
