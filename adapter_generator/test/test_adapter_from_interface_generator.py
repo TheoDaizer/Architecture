@@ -8,7 +8,7 @@ from ..set_strategy_decorator import set_strategy
 
 
 
-class TestInitializer(InitializeScopeTestCase):
+class TestAdapterGenerator(InitializeScopeTestCase):
 
     def test_adapter_from_interface_generator(self):
         class TestInterface(Protocol):
@@ -34,9 +34,8 @@ class TestInitializer(InitializeScopeTestCase):
 
         assert adapter_obj.get_a() is mock_get_a
         assert adapter_obj.get_b() is mock_get_b
-
         adapter_obj.set_b(mock_set_b)
-
+        assert adapter_obj.get_b() is mock_set_b
         assert mock_data['b'] is mock_set_b
 
     def test_user_defined_strategies(self):
